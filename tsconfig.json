@@ -6,7 +6,13 @@
     "forceConsistentCasingInFileNames": true,
     "strict": true,
     "skipLibCheck": true,
-    "outDir": "dist"
-  },
-  "include": ["src"]
+    "outDir": "dist",
+    "baseUrl": ".",
+    "paths":{
+      "@config/*": ["src/config/*"],
+      "@pages/*": ["src/pages/*"],
+      "@fixtures/*": ["src/fixtures/*"],
+      "@factory/*": ["src/factory/*"]
+    }
+  }
 }

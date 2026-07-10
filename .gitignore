@@ -9,6 +9,7 @@ yarn-error.log*
 .pnp.js
 /.idea
 .vscode/*
+.env
 
 # Playwright
 node_modules/
