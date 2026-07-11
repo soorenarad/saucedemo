@@ -41,9 +41,23 @@ export default defineConfig({
   /* Configure projects for major browsers */
   projects: [
     {
-      name: 'chromium',
-      use: { ...devices['Desktop Chrome'] },
+      name: 'setup',
+      testMatch: /tests\/auth\/.*\.setup\.spec\.ts$/,
+      teardown: "cleanup"
     },
+    {
+      name: 'chromium',
+      use: {
+        ...devices['Desktop Chrome'],
+        storageState: 'playwright/.auth/auth.json'
+      },
+      testMatch: /tests\/UI\/.*\.spec.ts$/,
+      dependencies: ['setup']
+    },
+    {
+      name: 'cleanup',
+      testMatch: 'tests/cleanup/cleanup.spec.ts'
+    }
 
     // {
     //   name: 'firefox',

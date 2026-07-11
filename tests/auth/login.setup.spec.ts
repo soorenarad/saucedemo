@@ -1,5 +1,5 @@
-import { test, expect } from "@fixtures/login.fixture"
-import { UserType, UserFactory } from "@factory/user.factory";
+import { test, expect } from "src/fixtures/pages.fixture"
+import { UserType, UserFactory } from "src/factory/user.factory";
 
 
 test("Login", async ({ page ,loginPage }) =>{
@@ -10,5 +10,7 @@ test("Login", async ({ page ,loginPage }) =>{
     await loginPage.login(user.username, user.password);
 
     await expect(page).toHaveURL('/inventory.html');
+
+    await page.context().storageState({ path: "playwright/.auth/auth.json"})
 
 })
