@@ -1,5 +1,5 @@
-import { test, expect } from "src/fixtures/pages.fixture"
-import { UserType, UserFactory } from "src/factory/user.factory";
+import { test, expect } from "@fixtures/pages.fixture"
+import { UserType, UserFactory } from "@factory/user.factory";
 
 
 test("Login", async ({ page ,loginPage }) =>{

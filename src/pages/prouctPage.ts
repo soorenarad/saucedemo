@@ -8,11 +8,7 @@ export class ProductPage extends BasePage {
 
     private readonly card = this.page.locator('.inventory_item');
     private readonly cart = this.page.locator('.shopping_cart_link');
-    private readonly title = this.page.locator(".title");
 
-    pageTitle(): Locator {
-        return this.title.filter({hasText: "Products"})
-    }
 
     productInPage(name: string): Locator {
         return this.card.filter({ hasText: name})

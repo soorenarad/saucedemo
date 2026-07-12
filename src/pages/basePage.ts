@@ -8,4 +8,8 @@ export abstract class BasePage {
         await this.page.goto(url);
         await locator.waitFor({ state: 'visible', timeout: timeout });
     }
+
+    title(){
+        return this.page.locator(".title");
+    }
 }

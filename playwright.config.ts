@@ -36,6 +36,7 @@ export default defineConfig({
     screenshot: 'only-on-failure',
     video: "retain-on-failure",
     trace: 'retain-on-failure',
+    testIdAttribute: "data-test",
   },
 
   /* Configure projects for major browsers */

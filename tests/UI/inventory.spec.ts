@@ -1,4 +1,4 @@
-import { test, expect } from "src/fixtures/pages.fixture"
+import { test, expect } from "@fixtures/pages.fixture"
 
 test.describe("Inventory logics", () => {
 
@@ -6,7 +6,7 @@ test.describe("Inventory logics", () => {
     const totalCount = 6
 
     test('User can add and remove a product', async ({productPage}) =>{
-        await productPage.gotoAndWait('/inventory.html', productPage.pageTitle());
+        await productPage.gotoAndWait('/inventory.html', productPage.title());
 
         await productPage.addToCart(productName);
 
@@ -20,7 +20,7 @@ test.describe("Inventory logics", () => {
     })
 
     test('Check total count of product', async ({productPage}) =>{
-        await productPage.gotoAndWait('/inventory.html', productPage.pageTitle());
+        await productPage.gotoAndWait('/inventory.html', productPage.title());
 
         await expect(productPage.products()).toHaveCount(totalCount);
     })
