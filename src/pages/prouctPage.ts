@@ -8,7 +8,8 @@ export class ProductPage extends BasePage {
 
     private readonly card = this.page.locator('.inventory_item');
     private readonly cart = this.page.locator('.shopping_cart_link');
-
+    private readonly prices = this.page.getByTestId('inventory-item-price');
+    private readonly filters = this.page.getByTestId('product-sort-container')
 
     productInPage(name: string): Locator {
         return this.card.filter({ hasText: name})
@@ -34,5 +35,17 @@ export class ProductPage extends BasePage {
 
     cartCount(): Locator {
         return this.cart.locator('.shopping_cart_badge')
+    }
+
+    pricesLocator(): Locator {
+        return this.prices
+    }
+
+    async filterAscending(): Promise<void> {
+        await this.filters.selectOption('lohi')
+    }
+
+    async filterDescending(): Promise<void> {
+        await this.filters.selectOption('hilo')
     }
 }

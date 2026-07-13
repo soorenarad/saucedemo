@@ -1,4 +1,5 @@
 import { test, expect } from "@fixtures/pages.fixture"
+import { isAscending, isDescending } from "@helpers/tools"
 
 test.describe("Inventory logics", () => {
 
@@ -6,7 +7,6 @@ test.describe("Inventory logics", () => {
     const totalCount = 6
 
     test('User can add and remove a product', async ({productPage}) =>{
-        await productPage.gotoAndWait('/inventory.html', productPage.title());
 
         await productPage.addToCart(productName);
 
@@ -20,8 +20,16 @@ test.describe("Inventory logics", () => {
     })
 
     test('Check total count of product', async ({productPage}) =>{
-        await productPage.gotoAndWait('/inventory.html', productPage.title());
-
         await expect(productPage.products()).toHaveCount(totalCount);
+    })
+
+    test('test price filters', async ({productPage}) =>{
+        await productPage.filterAscending();
+
+        expect(await isAscending(productPage.pricesLocator())).toBeTruthy()
+
+        await productPage.filterDescending()
+
+        expect(await isDescending(productPage.pricesLocator())).toBeTruthy()
     })
 })

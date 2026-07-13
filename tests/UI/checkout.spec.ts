@@ -14,8 +14,8 @@ test.describe("Checkout", () =>{
         products: ['Sauce Labs Backpack', 'Sauce Labs Bike Light'],
     }
 
-    test("Checkout flow", async ({cartPage, productPage}) =>{
-        await cartPage.gotoAndWait('/inventory.html', productPage.title());
+    test("Checkout flow", async ({cartPage}) =>{
+        await cartPage.gotoAndWait('/inventory.html', cartPage.title());
 
         await cartPage.addProduct(TEST_DATA.products);
 

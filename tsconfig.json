@@ -12,7 +12,8 @@
       "@config/*": ["src/config/*"],
       "@pages/*": ["src/pages/*"],
       "@fixtures/*": ["src/fixtures/*"],
-      "@factory/*": ["src/factory/*"]
+      "@factory/*": ["src/factory/*"],
+      "@helpers/*": ["src/helpers/*"]
     }
   }
 }

@@ -14,7 +14,17 @@ export const test = base.extend<Page>({
         await use(new LoginPage(page));
     },
     productPage: async ({ page }, use) =>{
-        await use(new ProductPage(page));
+        const productPage = new ProductPage(page);
+
+        await productPage.gotoAndWait(
+            "/inventory.html",
+            productPage.title()
+        );
+
+        await use(productPage);
+
+        // cleanup
+        await page.close();
     },
     cartPage: async ({page}, use) =>{
         await use(new CartPage(page));
